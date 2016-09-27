@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= @house.name %></h1>
+    <img class="house-image" src="http://www.itamichintai.com/01zoom.jpg" width="200" height="200">
+
+    <h3>Address</h3>
+    <p><%= @house.address %></p>
+
+    <h3>Note</h3>
+    <p><%= @house.note %></p>
+
+    <hr>
+    <%= link_to 'Edit', edit_house_path(@house), class: "btn btn-default" %>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-house">Delete</button>
+  </div>
+</div>
+<div class="modal fade" id="delete-house">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">物件情報の削除</h4>
+      </div>
+      <div class="modal-body">
+        <p><%= @house.name %>を削除しますか？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+        <%= link_to '削除する', @house, method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
